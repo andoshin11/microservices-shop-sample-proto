@@ -2,8 +2,7 @@ syntax = "proto3";
 
 package sampleshop.auth;
 
-// option go_package = "github.com/andoshin11/microservices-shop-sample-proto/shopsample";
-option go_package = "github.com/andoshin11/microservices-shop-sample-proto/shopsample/auth;auth";
+option go_package = "auth;auth";
 
 service AuthService {
   rpc Login(LoginRequest) returns (LoginResponse) {}

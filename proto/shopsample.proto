@@ -2,9 +2,8 @@ syntax = "proto3";
 
 package sampleshop;
 
-// option go_package = "github.com/andoshin11/microservices-shop-sample-proto/shopsample";
-option go_package = "github.com/andoshin11/microservices-shop-sample-proto/shopsample";
-// option go_package = "api_v2";
+option go_package = "shopsample;shopsample";
+
 
 import "google/api/annotations.proto";
 
