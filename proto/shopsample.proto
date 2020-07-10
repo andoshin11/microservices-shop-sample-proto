@@ -4,7 +4,6 @@ package sampleshop;
 
 option go_package = "shopsample;shopsample";
 
-
 import "google/api/annotations.proto";
 
 // -----------------Echo service-----------------
@@ -20,36 +19,6 @@ message EchoRequest {
 message EchoResponse {
   string content = 1;
 }
-
-// -----------------Auth service-----------------
-
-// service AuthService {
-//   rpc Login(LoginRequest) returns (LoginResponse) {}
-//   rpc GetUser(GetUserRequest) returns (GetUserResponse) {}
-// }
-
-// message LoginRequest {
-//   string email = 1;
-//   string password = 2;
-// }
-
-// message LoginResponse {
-//   string token = 1;
-// }
-
-// message GetUserRequest {
-//   string token = 1;
-// }
-
-// message GetUserResponse {
-//   User user = 1;
-// }
-
-// message User {
-//   string id = 1;
-//   string name = 2;
-//   string email = 3;
-// }
 
 // -----------------Cart service-----------------
 

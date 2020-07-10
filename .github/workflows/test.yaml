@@ -1,0 +1,34 @@
+name: lint
+
+on: [pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          go-version: 1.14.2
+      - name: Lint
+        run: make lint
+
+
+
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: technote-space/get-diff-action@v2
+  #       id: proto_diff
+  #       with:
+  #         PREFIX_FILTER: |
+  #           proto
+  #         SUFFIX_FILTER: .proto
+  #     - uses: actions/setup-go@v2
+  #       with:
+  #         go-version: '^1.13.1'
+  #       if: steps.proto_diff.outputs.diff
+  #     - name: Install protoc-gen-go
+  #       run: go install google.golang.org/protobuf/cmd/protoc-gen-go
+  #       if: steps.proto_diff.outputs.diff
