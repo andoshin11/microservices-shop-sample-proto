@@ -1,4 +1,4 @@
-module shopsample
+module github.com/andoshin11/microservices-shop-sample-proto
 
 go 1.14
 
