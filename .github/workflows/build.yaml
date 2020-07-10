@@ -28,3 +28,9 @@ jobs:
         run: go install google.golang.org/protobuf/cmd/protoc-gen-go
       - name: Build Artifact
         run: make gen-proto-all
+      - uses: technote-space/get-diff-action@v2
+        id: protogen_diff
+        with:
+          PREFIX_FILTER: |
+            protogen
+          SUFFIX_FILTER: .pb.go
