@@ -17,6 +17,13 @@ CACHE_BIN := $(CACHE)/bin
 # Marker files are put into this directory to denote the current version of binaries that are installed.
 CACHE_VERSIONS := $(CACHE)/versions
 
+# Update the $PATH so we can use buf directly
+export PATH := $(abspath $(CACHE_BIN)):$(PATH)
+# Update GOBIN to point to CACHE_BIN for source installations
+export GOBIN := $(abspath $(CACHE_BIN))
+# This is needed to allow versions to be added to Golang modules with go get
+export GO111MODULE := on
+
 BUF := $(CACHE_VERSIONS)/buf/$(BUF_VERSION)
 $(BUF):
 	@rm -f $(CACHE_BIN)/buf
@@ -35,8 +42,8 @@ endif
 	@mkdir -p $(dir $(BUF))
 	@touch $(BUF)
 
-.PHONY: lint
-lint: $(BUF)
+.PHONY: ci-lint
+ci-lint: $(BUF)
 	buf check lint
 
 .PHONY: gen-proto-all
